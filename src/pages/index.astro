@@ -5,11 +5,217 @@ import Header from "../components/Header.astro";
 
 <Layout title="Dictionary ">
 	<Header />
-	dupa dupa
+
+	<main>
+		<form class="wordForm">
+			<input
+				type="text"
+				name="wordInput"
+				id="wordInput"
+				placeholder="Search for any word..."
+			/>
+			<button type="submit">
+				<img src="/assets/images/icon-search.svg" alt="" />
+			</button>
+		</form>
+
+		<section class="syntaxAndPronouncation">
+			<div>
+				<h1>keyboard</h1>
+				<p>/ˈkiːbɔːd/</p>
+			</div>
+			<button><img src="/assets/images/icon-play.svg" alt="" /></button>
+		</section>
+		<section class="nounSection">
+			<div class="sectionTitle">
+				<h2><i>noun</i></h2>
+			</div>
+
+			<h3 class="subheading">Meaning</h3>
+			<ul>
+				<li>
+					(etc.) A set of keys used to operate a typewriter, computer
+					etc.
+				</li>
+				<li>
+					A component of many instruments including the piano, organ,
+					and harpsichord consisting of usually black and white keys
+					that cause different tones to be produced when struck.
+				</li>
+				<li>
+					A device with keys of a musical keyboard, used to control
+					electronic sound-producing devices which may be built into
+					or separate from the keyboard device.
+				</li>
+			</ul>
+			<div class="synonyms">
+				<h3 class="subheading">Synonyms</h3>
+				<ul>
+					<li>electronic keyboard</li>
+				</ul>
+			</div>
+		</section>
+		<section class="verbSection">
+			<div class="sectionTitle"><h2><i>verb</i></h2></div>
+
+			<h3 class="subheading">Meaning</h3>
+			<ul>
+				<li>
+					<p>To type on a computer keyboard.</p>
+					<blockquote>
+						“Keyboarding is the part of this job I hate the most.”
+					</blockquote>
+				</li>
+			</ul>
+		</section>
+		<section class="sourceSection">
+			<h3>Source</h3>
+			<div>
+				<a href="https://en.wiktionary.org/wiki/keyboard"
+					>https://en.wiktionary.org/wiki/keyboard</a
+				>
+				<img src="/assets/images/icon-new-window.svg" alt="" />
+			</div>
+		</section>
+	</main>
 </Layout>
 
 <style lang="scss">
-	html {
-		background-color: var(--current-neutral-100);
+	main {
+		padding-inline: 1.5rem;
+	}
+	.wordForm {
+		background-color: var(--current-700);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		border-radius: 1rem;
+	}
+	#wordInput {
+		background-color: var(--current-700);
+		color: var(--current-800);
+	}
+	.syntaxAndPronouncation {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding-block: 1.5rem;
+		h1 {
+			font-size: calc(var(--fs-heading-large) / 2);
+			font-weight: bold;
+		}
+		p {
+			color: var(--accent);
+		}
+		button {
+			max-width: 4rem;
+		}
+	}
+
+	.sectionTitle {
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			height: 1px;
+			left: 0;
+			top: 50%;
+			background-color: var(--current-500);
+		}
+		h2 {
+			width: fit-content;
+			padding-right: 1rem;
+			background-color: var(--current-800);
+			z-index: 100;
+			font-weight: bold;
+			font-size: var(--fs-body-medium);
+		}
+		hr {
+			color: var(--current-500);
+		}
+	}
+
+	.nounSection {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.subheading {
+		color: var(--current-400);
+		font-size: var(--fs-body-medium);
+	}
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		list-style: disc;
+		margin-left: 1rem;
+		li {
+			&::marker {
+				color: var(--accent);
+			}
+			font-size: var(--fs-body-small);
+			color: var(--current-100);
+			line-height: var(--lh-heading-small);
+		}
+	}
+	.synonyms {
+		display: flex;
+		flex-direction: row;
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			list-style: none;
+			li {
+				font-size: var(--fs-body-medium);
+				color: var(--accent);
+				font-weight: bold;
+				line-height: var(--lh-heading-small);
+			}
+		}
+	}
+
+	.verbSection {
+		margin-block: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	blockquote {
+		color: var(--current-400);
+	}
+
+	.sourceSection {
+		border-top: 1px solid var(--current-500);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-block: 0.5rem 2rem;
+		h3 {
+			color: var(--current-400);
+			text-decoration: underline;
+			font-size: var(--fs-body-small);
+		}
+		div {
+			display: flex;
+			gap: 0.5rem;
+			a {
+				text-decoration: underline;
+				color: var(--current-300);
+				font-size: var(--fs-body-small);
+			}
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		main {
+			padding-inline: 2.5rem;
+		}
 	}
 </style>

@@ -1,5 +1,12 @@
 ---
 import { Switch } from "@/components/ui/switch";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 ---
 
 <header>
@@ -7,10 +14,22 @@ import { Switch } from "@/components/ui/switch";
 		<img src="/assets/images/logo.svg" alt="" />
 	</a>
 	<div class="controls">
-		<select>
-			<option>Serif</option>
-			<option>Sans serif</option>
-			<option>Monospace</option>
+		<!-- <Select client:only="react">
+			<SelectTrigger className="w-[180px]" client:only="react">
+				<SelectValue placeholder="Theme" client:only="react" />
+			</SelectTrigger>
+			<SelectContent client:only="react">
+				<SelectItem client:only="react" value="light">Light</SelectItem>
+				<SelectItem client:only="react" value="dark">Dark</SelectItem>
+				<SelectItem client:only="react" value="system"
+					>System</SelectItem
+				>
+			</SelectContent>
+		</Select> -->
+		<select name="" id="">
+			<option value="">Sans serif</option>
+			<option value="">Serif</option>
+			<option value="">Mono</option>
 		</select>
 		<form action="">
 			<Switch client:only="react" id="colorThemeSwitch" />
@@ -30,23 +49,44 @@ import { Switch } from "@/components/ui/switch";
 	.controls {
 		display: flex;
 		flex-direction: row;
+		gap: 0.25rem;
 	}
 	select {
-		border-right: 1px solid var(--current-600);
+		background-color: var(--current-800);
+		color: var(--current-100);
 		line-height: var(--lh-heading-small);
 		font-size: var(--fs-body-small);
-		border: 0;
-		color: red;
-		&::marker {
-			color: red;
-			background-color: red;
-		}
+
+		// // padding-inline: 1.5rem;
+
+		// & * {
+		// 	color: green;
+		// }
+		// &:-ms-expand {
+		// 	color: green;
+		// 	background-color: greenyellow;
+		// 	box-shadow: 10px 10px 10px 10px red;
+		// }
 	}
+	// select::-ms-expand {
+	// 	display: none;
+	// }
 	option {
-		border: 0;
+		color: red;
+		border: none;
+		outline: none;
+		padding: 1.5rem;
+		box-shadow: 10px 10px red;
 	}
 	form {
+		border-left: 1px solid var(--current-600);
+		padding-left: 0.5rem;
 		display: flex;
 		gap: 0.75rem;
+	}
+	@media only screen and (min-width: 768px) {
+		main {
+			padding-inline: 2.5rem;
+		}
 	}
 </style>
