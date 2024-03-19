@@ -91,10 +91,15 @@ import Header from "../components/Header.astro";
 		justify-content: space-between;
 		padding: 0.5rem 1rem;
 		border-radius: 1rem;
+		button {
+			padding-inline: 1rem 0;
+		}
 	}
 	#wordInput {
 		background-color: var(--current-700);
 		color: var(--current-800);
+		color: var(--current-100);
+		flex-grow: 1;
 	}
 	.syntaxAndPronouncation {
 		display: flex;
@@ -167,6 +172,7 @@ import Header from "../components/Header.astro";
 	.synonyms {
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		ul {
 			display: flex;
 			flex-direction: column;
@@ -216,6 +222,64 @@ import Header from "../components/Header.astro";
 	@media only screen and (min-width: 768px) {
 		main {
 			padding-inline: 2.5rem;
+		}
+		.wordForm {
+		}
+		#wordInput {
+			font-size: var(--fs-heading-small);
+		}
+		.syntaxAndPronouncation {
+			h1 {
+				font-size: var(--fs-heading-large);
+			}
+			p {
+				font-size: var(--fs-heading-medium);
+			}
+			button {
+				max-width: 10vw;
+			}
+		}
+		.sectionTitle {
+			h2 {
+				font-size: var(--fs-heading-medium);
+			}
+		}
+		.subheading {
+			font-size: var(--fs-heading-small);
+		}
+		.nounSection {
+			gap: 1.5rem;
+		}
+		ul {
+			padding-left: 2rem;
+			gap: 1.5rem;
+			li {
+				font-size: var(--fs-body-medium);
+			}
+		}
+		.synonyms {
+			ul {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				flex-grow: 1;
+			}
+		}
+		.verbSection {
+			gap: 1.5rem;
+		}
+		.sourceSection {
+			display: flex;
+			flex-direction: row;
+			gap: 2rem;
+			padding-block: 1rem 3rem;
+			h3 {
+			}
+		}
+	}
+	@media only screen and (min-width: 1440px) {
+		main {
+			padding-inline: 25vw;
 		}
 	}
 </style>
