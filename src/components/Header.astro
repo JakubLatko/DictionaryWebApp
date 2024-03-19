@@ -1,0 +1,52 @@
+---
+import { Switch } from "@/components/ui/switch";
+---
+
+<header>
+	<a href="/">
+		<img src="/assets/images/logo.svg" alt="" />
+	</a>
+	<div class="controls">
+		<select>
+			<option>Serif</option>
+			<option>Sans serif</option>
+			<option>Monospace</option>
+		</select>
+		<form action="">
+			<Switch client:only="react" id="colorThemeSwitch" />
+			<img src="/assets/images/icon-moon.svg" alt="" />
+		</form>
+	</div>
+</header>
+
+<style lang="scss">
+	header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 1.5rem;
+		justify-content: space-between;
+	}
+	.controls {
+		display: flex;
+		flex-direction: row;
+	}
+	select {
+		border-right: 1px solid var(--current-600);
+		line-height: var(--lh-heading-small);
+		font-size: var(--fs-body-small);
+		border: 0;
+		color: red;
+		&::marker {
+			color: red;
+			background-color: red;
+		}
+	}
+	option {
+		border: 0;
+	}
+	form {
+		display: flex;
+		gap: 0.75rem;
+	}
+</style>
