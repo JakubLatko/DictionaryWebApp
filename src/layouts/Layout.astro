@@ -128,4 +128,24 @@ const { title } = Astro.props;
 			--current-800: var(--neutral-800);
 		}
 	}
+	body[data-color-scheme="light"] {
+		--current-100: var(--neutral-100);
+		--current-200: var(--neutral-200);
+		--current-300: var(--neutral-300);
+		--current-400: var(--neutral-400);
+		--current-500: var(--neutral-500);
+		--current-600: var(--neutral-600);
+		--current-700: var(--neutral-700);
+		--current-800: var(--neutral-800);
+	}
+	body[data-color-scheme="dark"] {
+		--current-100: var(--neutral-800);
+		--current-200: var(--neutral-700);
+		--current-300: var(--neutral-600);
+		--current-400: var(--neutral-500);
+		--current-500: var(--neutral-400);
+		--current-600: var(--neutral-300);
+		--current-700: var(--neutral-200);
+		--current-800: var(--neutral-100);
+	}
 </style>

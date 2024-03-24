@@ -1,12 +1,17 @@
 ---
 import { Switch } from "@/components/ui/switch";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+import  SwitchTest  from "@/components/SwitchTest.tsx";
+import SelectTest  from "@/components/SelectTest.tsx";
+// import {
+// 	Select,
+// 	SelectContent,
+// 	SelectItem,
+// 	SelectTrigger,
+// 	SelectValue,
+// } from "@/components/ui/select";
+let test;
+console.log(test);
+
 ---
 
 <header>
@@ -26,13 +31,15 @@ import {
 				>
 			</SelectContent>
 		</Select> -->
+		<!-- <SelectTest client:only></SelectTest> -->
 		<select name="" id="">
 			<option value="">Sans serif</option>
 			<option value="">Serif</option>
 			<option value="">Mono</option>
 		</select>
-		<form action="">
-			<Switch client:only="react" id="colorThemeSwitch" />
+		<form id="colorForm">
+			<!-- <Switch client:only="react" id="colorThemeSwitch"/> -->
+			<SwitchTest client:only>
 			<img src="/assets/images/icon-moon.svg" alt="" />
 		</form>
 	</div>
@@ -107,3 +114,34 @@ import {
 		}
 	}
 </style>
+
+<script is:inline>
+
+	let dupa = () => {
+		console.log("dpa")
+	}
+	// let test;
+
+
+
+	// const toggle = document.querySelector("button");
+	// const form = document.querySelector("form img");
+	// console.log(form);
+	// console.log(toggle);
+	// toggle?.addEventListener("click", () => {
+	// 	console.log("dziala");
+	// 	if (toggle.ariaChecked) {
+	// 		console.log("checked");
+	// 	}
+	// 	if (!toggle.ariaChecked) {
+	// 		console.log("nie checked");
+	// 	}
+	// });
+	// function themeSwitch() {
+
+	// }
+
+	// themeSwitch();
+
+	// import { themeSwitch } from "../scripts/themeSwitch.ts";
+</script>

@@ -1,0 +1,299 @@
+main {
+	padding-inline: 1.5rem;
+}
+.wordForm {
+	background-color: var(--current-700);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+	/* button {
+		padding-inline: 1rem 0;
+	} */
+}
+
+.wordForm button {
+	padding-inline: 1rem 0;
+}
+
+#wordInput {
+	background-color: var(--current-700);
+	color: var(--current-800);
+	color: var(--current-100);
+	flex-grow: 1;
+}
+.syntaxAndPronouncation {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-block: 1.5rem;
+	/* h1 {
+		font-size: calc(var(--fs-heading-large) / 2);
+		font-weight: bold;
+	}
+	p {
+		color: var(--accent);
+	}
+	button {
+		max-width: 4rem;
+	} */
+}
+
+.syntaxAndPronouncation h1 {
+	font-size: calc(var(--fs-heading-large) / 2);
+	font-weight: bold;
+}
+
+.syntaxAndPronouncation p {
+	color: var(--accent);
+}
+
+.syntaxAndPronouncation button {
+	max-width: 4rem;
+}
+
+.sectionTitle {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	/* &::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		height: 1px;
+		left: 0;
+		top: 50%;
+		background-color: var(--current-500);
+	}
+	h2 {
+		width: fit-content;
+		padding-right: 1rem;
+		background-color: var(--current-800);
+		z-index: 100;
+		font-weight: bold;
+		font-size: var(--fs-body-medium);
+	}
+	hr {
+		color: var(--current-500);
+	} */
+}
+
+.sectionTitle::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	height: 1px;
+	left: 0;
+	top: 50%;
+	background-color: var(--current-500);
+}
+
+.sectionTitle h2 {
+	width: fit-content;
+	padding-right: 1rem;
+	background-color: var(--current-800);
+	z-index: 100;
+	font-weight: bold;
+	font-size: var(--fs-body-medium);
+}
+
+.nounSection {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.subheading {
+	color: var(--current-400);
+	font-size: var(--fs-body-medium);
+}
+ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	list-style: disc;
+	margin-left: 1rem;
+	/* li {
+		&::marker {
+			color: var(--accent);
+		}
+		font-size: var(--fs-body-small);
+		color: var(--current-100);
+		line-height: var(--lh-heading-small);
+	} */
+}
+
+ul li {
+	font-size: var(--fs-body-small);
+	color: var(--current-100);
+	line-height: var(--lh-heading-small);
+}
+
+ul li::marker {
+	color: var(--accent);
+}
+
+.synonyms {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		list-style: none;
+		li {
+			font-size: var(--fs-body-medium);
+			color: var(--accent);
+			font-weight: bold;
+			line-height: var(--lh-heading-small);
+		}
+	} */
+}
+
+.synonyms ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	list-style: none;
+}
+.synonyms ul li {
+	font-size: var(--fs-body-medium);
+	color: var(--accent);
+	font-weight: bold;
+	line-height: var(--lh-heading-small);
+}
+
+.verbSection {
+	margin-block: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+blockquote {
+	color: var(--current-400);
+}
+
+.sourceSection {
+	border-top: 1px solid var(--current-500);
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-block: 0.5rem 2rem;
+	/* h3 {
+		color: var(--current-400);
+		text-decoration: underline;
+		font-size: var(--fs-body-small);
+	}
+	div {
+		display: flex;
+		gap: 0.5rem;
+		a {
+			text-decoration: underline;
+			color: var(--current-300);
+			font-size: var(--fs-body-small);
+		}
+	} */
+}
+
+.sourceSection h3 {
+	color: var(--current-400);
+	text-decoration: underline;
+	font-size: var(--fs-body-small);
+}
+.sourceSection div {
+	display: flex;
+	gap: 0.5rem;
+}
+.sourceSection div a {
+	text-decoration: underline;
+	color: var(--current-300);
+	font-size: var(--fs-body-small);
+}
+
+@media only screen and (min-width: 768px) {
+	main {
+		padding-inline: 2.5rem;
+	}
+
+	#wordInput {
+		font-size: var(--fs-heading-small);
+	}
+	/* .syntaxAndPronouncation {
+		h1 {
+			font-size: var(--fs-heading-large);
+		}
+		p {
+			font-size: var(--fs-heading-medium);
+		}
+		button {
+			max-width: 10vw;
+		}
+	} */
+
+	.syntaxAndPronouncation h1 {
+		font-size: var(--fs-heading-large);
+	}
+	.syntaxAndPronouncation p {
+		font-size: var(--fs-heading-medium);
+	}
+	.syntaxAndPronouncation button {
+		max-width: 10vw;
+	}
+
+	/* .sectionTitle {
+		 h2 {
+			font-size: var(--fs-heading-medium);
+		} 
+	} */
+
+	.sectionTitle h2 {
+		font-size: var(--fs-heading-medium);
+	}
+	.subheading {
+		font-size: var(--fs-heading-small);
+	}
+	.nounSection {
+		gap: 1.5rem;
+	}
+	ul {
+		padding-left: 2rem;
+		gap: 1.5rem;
+		/* li {
+			font-size: var(--fs-body-medium);
+		} */
+	}
+	ul li {
+		font-size: var(--fs-body-medium);
+	}
+	/* .synonyms {
+		ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex-grow: 1;
+		}
+	} */
+
+	.synonyms ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex-grow: 1;
+	}
+	.verbSection {
+		gap: 1.5rem;
+	}
+	.sourceSection {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+		padding-block: 1rem 3rem;
+	}
+}
+@media only screen and (min-width: 1440px) {
+	main {
+		padding-inline: 25vw;
+	}
+}
