@@ -6,6 +6,11 @@ function randomKey() {
 }
 
 const WordComponent = ({ res }: { res: wordObj | undefined }) => {
+	function playAudio() {
+		const audio = new Audio(res?.audio);
+		if (!audio) return;
+		audio.play();
+	}
 	return (
 		<>
 			{res?.word ? (
@@ -15,7 +20,10 @@ const WordComponent = ({ res }: { res: wordObj | undefined }) => {
 						{res?.phonetic ? <p>{res?.phonetic}</p> : null}
 					</div>
 					{res?.phonetic ? (
-						<button>
+						<button
+							className="play-button"
+							value="PLAY"
+							onClick={playAudio}>
 							<img src="/assets/images/icon-play.svg" alt="" />
 						</button>
 					) : null}

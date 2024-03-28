@@ -87,7 +87,8 @@ const { title } = Astro.props;
 		/* Tailwind variables */
 
 		/* --background: var(--current-600); */
-		--background: 0 0% 100%;
+		--background: 100 0% 50%;
+		/* --background: var(--current-100); */
 		/* --background: 274 82% 60%; */
 		/* --background: 0 100% 50%; */
 		/* --foreground: 0 0% 3.9%; */
@@ -113,6 +114,7 @@ const { title } = Astro.props;
 			--current-600: var(--neutral-300);
 			--current-700: var(--neutral-200);
 			--current-800: var(--neutral-100);
+			--background: 0 0% 2%;
 		}
 	}
 
@@ -126,8 +128,22 @@ const { title } = Astro.props;
 			--current-600: var(--neutral-600);
 			--current-700: var(--neutral-700);
 			--current-800: var(--neutral-800);
+			--background: 0 0% 100%;
 		}
 	}
+
+	body[data-font-type="Serif"] {
+		--current-font: var(--font-serif);
+	}
+
+	body[data-font-type="Sans-Serif"] {
+		--current-font: var(--font-sans-serif);
+	}
+
+	body[data-font-type="Mono"] {
+		--current-font: var(--font-mono);
+	}
+
 	body[data-color-scheme="light"] {
 		--current-100: var(--neutral-100);
 		--current-200: var(--neutral-200);
@@ -137,7 +153,9 @@ const { title } = Astro.props;
 		--current-600: var(--neutral-600);
 		--current-700: var(--neutral-700);
 		--current-800: var(--neutral-800);
+		--background: 0 0% 100%;
 	}
+
 	body[data-color-scheme="dark"] {
 		--current-100: var(--neutral-800);
 		--current-200: var(--neutral-700);
@@ -147,5 +165,6 @@ const { title } = Astro.props;
 		--current-600: var(--neutral-300);
 		--current-700: var(--neutral-200);
 		--current-800: var(--neutral-100);
+		--background: 0 0% 2%;
 	}
 </style>

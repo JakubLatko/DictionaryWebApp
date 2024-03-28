@@ -1,7 +1,7 @@
 ---
 import { Switch } from "@/components/ui/switch";
-import  SwitchTest  from "@/components/SwitchTest.tsx";
-import SelectTest  from "@/components/SelectTest.tsx";
+import SwitchTest from "@/components/SwitchTest.tsx";
+import SelectTest from "@/components/SelectTest.tsx";
 // import {
 // 	Select,
 // 	SelectContent,
@@ -11,7 +11,6 @@ import SelectTest  from "@/components/SelectTest.tsx";
 // } from "@/components/ui/select";
 let test;
 console.log(test);
-
 ---
 
 <header>
@@ -31,117 +30,118 @@ console.log(test);
 				>
 			</SelectContent>
 		</Select> -->
-		<!-- <SelectTest client:only></SelectTest> -->
-		<select name="" id="">
+		<SelectTest client:only="react" />
+		<!-- <select name="" id="">
 			<option value="">Sans serif</option>
 			<option value="">Serif</option>
 			<option value="">Mono</option>
-		</select>
+		</select> -->
 		<form id="colorForm">
 			<!-- <Switch client:only="react" id="colorThemeSwitch"/> -->
 			<SwitchTest client:only>
-			<img src="/assets/images/icon-moon.svg" alt="" />
+				<img src="/assets/images/icon-moon.svg" alt="" />
+			</SwitchTest>
 		</form>
 	</div>
-</header>
 
-<style lang="scss">
-	header {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		padding: 1.5rem;
-		justify-content: space-between;
-	}
-	.controls {
-		display: flex;
-		flex-direction: row;
-		gap: 0.25rem;
-	}
-	select {
-		background-color: var(--current-800);
-		color: var(--current-100);
-		line-height: var(--lh-heading-small);
-		font-size: var(--fs-body-small);
-
-		// // padding-inline: 1.5rem;
-
-		// & * {
-		// 	color: green;
-		// }
-		// &:-ms-expand {
-		// 	color: green;
-		// 	background-color: greenyellow;
-		// 	box-shadow: 10px 10px 10px 10px red;
-		// }
-	}
-	// select::-ms-expand {
-	// 	display: none;
-	// }
-	option {
-		color: red;
-		border: none;
-		outline: none;
-		padding: 1.5rem;
-		box-shadow: 10px 10px red;
-	}
-	form {
-		border-left: 1px solid var(--current-300);
-		padding-left: 0.5rem;
-		display: flex;
-		gap: 0.75rem;
-	}
-
-	@media only screen and (min-width: 768px) {
+	<style lang="scss">
 		header {
-			padding-inline: 2.5rem;
-			padding-block: 3rem;
-		}
-		select {
-			font-size: var(--fs-body-medium);
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 1.5rem;
+			justify-content: space-between;
 		}
 		.controls {
-			gap: 2rem;
+			display: flex;
+			flex-direction: row;
+			gap: 0.25rem;
+		}
+		select {
+			background-color: var(--current-800);
+			color: var(--current-100);
+			line-height: var(--lh-heading-small);
+			font-size: var(--fs-body-small);
+
+			// // padding-inline: 1.5rem;
+
+			// & * {
+			// 	color: green;
+			// }
+			// &:-ms-expand {
+			// 	color: green;
+			// 	background-color: greenyellow;
+			// 	box-shadow: 10px 10px 10px 10px red;
+			// }
+		}
+		// select::-ms-expand {
+		// 	display: none;
+		// }
+		option {
+			color: red;
+			border: none;
+			outline: none;
+			padding: 1.5rem;
+			box-shadow: 10px 10px red;
 		}
 		form {
-			gap: 1rem;
-			padding-inline: 2rem 0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			border-left: 1px solid var(--current-300);
+			padding-left: 0.5rem;
+			display: flex;
+			gap: 0.75rem;
 		}
-	}
-	@media only screen and (min-width: 1440px) {
-		header {
-			padding-inline: 25vw;
+
+		@media only screen and (min-width: 768px) {
+			header {
+				padding-inline: 2.5rem;
+				padding-block: 3rem;
+			}
+			select {
+				font-size: var(--fs-body-medium);
+			}
+			.controls {
+				gap: 2rem;
+			}
+			form {
+				gap: 1rem;
+				padding-inline: 2rem 0;
+			}
 		}
-	}
-</style>
+		@media only screen and (min-width: 1440px) {
+			header {
+				padding-inline: 25vw;
+			}
+		}
+	</style>
 
-<script is:inline>
+	<script is:inline>
+		let dupa = () => {
+			console.log("dpa");
+		};
+		// let test;
 
-	let dupa = () => {
-		console.log("dpa")
-	}
-	// let test;
+		// const toggle = document.querySelector("button");
+		// const form = document.querySelector("form img");
+		// console.log(form);
+		// console.log(toggle);
+		// toggle?.addEventListener("click", () => {
+		// 	console.log("dziala");
+		// 	if (toggle.ariaChecked) {
+		// 		console.log("checked");
+		// 	}
+		// 	if (!toggle.ariaChecked) {
+		// 		console.log("nie checked");
+		// 	}
+		// });
+		// function themeSwitch() {
 
+		// }
 
+		// themeSwitch();
 
-	// const toggle = document.querySelector("button");
-	// const form = document.querySelector("form img");
-	// console.log(form);
-	// console.log(toggle);
-	// toggle?.addEventListener("click", () => {
-	// 	console.log("dziala");
-	// 	if (toggle.ariaChecked) {
-	// 		console.log("checked");
-	// 	}
-	// 	if (!toggle.ariaChecked) {
-	// 		console.log("nie checked");
-	// 	}
-	// });
-	// function themeSwitch() {
-
-	// }
-
-	// themeSwitch();
-
-	// import { themeSwitch } from "../scripts/themeSwitch.ts";
-</script>
+		// import { themeSwitch } from "../scripts/themeSwitch.ts";
+	</script>
+</header>
