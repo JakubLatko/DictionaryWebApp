@@ -1,18 +1,21 @@
 export interface definition {
 	definition: string;
 	example?: string;
-	synonyms: string[];
 }
 
 export interface meanings {
 	partOfSpeech: string;
 	definitions: definition[];
+	synonyms: string[];
 }
 
 export interface wordObj {
-	word: string;
-	phonetic: string;
-	meanings: meanings[];
-	sources: string[];
-	audio: string;
+	word?: string;
+	phonetic?: string;
+	meanings?: meanings[];
+	sources?: string[];
+	audio?: string;
+	title?: string;
+	message?: string;
+	resolution?: string;
 }

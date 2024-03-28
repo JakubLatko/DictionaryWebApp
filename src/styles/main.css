@@ -202,11 +202,20 @@ blockquote {
 	text-decoration: underline;
 	font-size: var(--fs-body-small);
 }
-.sourceSection div {
+.sourceSection ul {
+	list-style: none;
+	display: flex;
+	gap: 0.5rem;
+	padding: 0;
+	margin: 0;
+}
+
+.sourceSection ul li {
 	display: flex;
 	gap: 0.5rem;
 }
-.sourceSection div a {
+
+.sourceSection ul li a {
 	text-decoration: underline;
 	color: var(--current-300);
 	font-size: var(--fs-body-small);

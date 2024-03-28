@@ -1,24 +1,28 @@
 import type { wordObj } from "@/scripts/wordTypes";
 
 function randomKey() {
-	return Math.random();
+	let number = Math.round(Math.random() * 1000);
+	return number;
 }
 
 const WordComponent = ({ res }: { res: wordObj | undefined }) => {
 	return (
 		<>
-			<section className="syntaxAndPronouncation">
-				<div>
-					<h1>{res?.word}</h1>
-					<p>{res?.phonetic}/</p>
-				</div>
-				<button>
-					<img src="/assets/images/icon-play.svg" alt="" />
-				</button>
-			</section>
-
-			{res?.meanings.map((meaning) => (
-				<>
+			{res?.word ? (
+				<section className="syntaxAndPronouncation">
+					<div>
+						<h1>{res?.word}</h1>
+						{res?.phonetic ? <p>{res?.phonetic}</p> : null}
+					</div>
+					{res?.phonetic ? (
+						<button>
+							<img src="/assets/images/icon-play.svg" alt="" />
+						</button>
+					) : null}
+				</section>
+			) : null}
+			{res?.meanings?.map((meaning) => (
+				<span key={randomKey()}>
 					{meaning.partOfSpeech === "noun" ? (
 						<section className="nounSection" key={randomKey()}>
 							<div className="sectionTitle">
@@ -29,24 +33,21 @@ const WordComponent = ({ res }: { res: wordObj | undefined }) => {
 							<h3 className="subheading">Meaning</h3>
 							<ul>
 								{meaning.definitions.map((element) => (
-									<>
-										<li key={randomKey()}>
-											{element.definition}
-										</li>
-									</>
+									<span key={randomKey()}>
+										<li>{element.definition}</li>
+									</span>
 								))}
 							</ul>
-
-							<div className="synonyms">
-								<h3 className="subheading">Synonyms</h3>
-								<ul>
-									{meaning.definitions.map((element) => (
-										<li key={randomKey()}>
-											{element.synonyms}
-										</li>
-									))}
-								</ul>
-							</div>
+							{meaning.synonyms.length < 1 ? null : (
+								<div className="synonyms">
+									<h3 className="subheading">Synonyms</h3>
+									<ul>
+										{meaning.synonyms.map((element) => (
+											<li key={randomKey()}>{element}</li>
+										))}
+									</ul>
+								</div>
+							)}
 						</section>
 					) : null}
 
@@ -70,7 +71,12 @@ const WordComponent = ({ res }: { res: wordObj | undefined }) => {
 							</ul>
 						</section>
 					) : null}
-					{meaning.partOfSpeech === "interjection" ? (
+					{meaning.partOfSpeech === "interjection" ||
+					"pronoun" ||
+					"adjective" ||
+					"adverb" ||
+					"preposition" ||
+					"conjuction" ? (
 						<section className="verbSection" key={randomKey()}>
 							<div className="sectionTitle">
 								<h2>
@@ -90,40 +96,24 @@ const WordComponent = ({ res }: { res: wordObj | undefined }) => {
 							</ul>
 						</section>
 					) : null}
-				</>
+				</span>
 			))}
-			<section className="sourceSection">
-				<h3>Source</h3>
-				<div>
-					{res?.sources.map((source) => (
-						<span key={randomKey()}>
-							<a href={source}>{source}</a>
-							<img
-								src="/assets/images/icon-new-window.svg"
-								alt=""
-							/>
-						</span>
-					))}
-				</div>
-			</section>
-			{/* <section className="verbSection">
-				<div className="sectionTitle">
-					<h2>
-						<i>verb</i>
-					</h2>
-				</div>
-
-				<h3 className="subheading">Meaning</h3>
-				<ul>
-					<li>
-						<p>To type on a computer keyboard.</p>
-						<blockquote>
-							“Keyboarding is the part of this job I hate the
-							most.”
-						</blockquote>
-					</li>
-				</ul>
-			</section> */}
+			{res?.word ? (
+				<section className="sourceSection">
+					<h3>Source</h3>
+					<ul>
+						{res?.sources?.map((source) => (
+							<li className="sourceLink" key={randomKey()}>
+								<a href={source}>{source}</a>
+								<img
+									src="/assets/images/icon-new-window.svg"
+									alt=""
+								/>
+							</li>
+						))}
+					</ul>
+				</section>
+			) : null}
 		</>
 	);
 };

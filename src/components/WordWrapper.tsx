@@ -3,6 +3,7 @@ import WordContent from "@/components/WordContent";
 import "../styles/main.css";
 
 import type { wordObj } from "@/scripts/wordTypes";
+import FailComponent from "./FailComponent";
 
 const searchWord = async (word: string) => {
 	let returnData;
@@ -26,7 +27,7 @@ async function formHandler() {
 	return response;
 }
 
-const WordComponent = () => {
+const WordWrapper = () => {
 	let [response, setResponse] = useState();
 	return (
 		<main>
@@ -40,13 +41,26 @@ const WordComponent = () => {
 						return;
 					}
 					console.log(formRes);
-					res = {
-						meanings: formRes[0].meanings,
-						phonetic: formRes[0].phonetic,
-						sources: formRes[0].sourceUrls,
-						word: formRes[0].word,
-						audio: formRes[0].phonetics[0]?.audio,
-					};
+					if (formRes.message) {
+						res = {
+							// meanings: formRes[0].meanings,
+							// phonetic: formRes[0].phonetic,
+							// sources: formRes[0].sourceUrls,
+							// word: formRes[0].word,
+							// audio: formRes[0].phonetics[0]?.audio,
+							message: formRes.message,
+							title: formRes.title,
+							resolution: formRes.resolution,
+						};
+					} else {
+						res = {
+							meanings: formRes[0].meanings,
+							phonetic: formRes[0].phonetic,
+							sources: formRes[0].sourceUrls,
+							word: formRes[0].word,
+							audio: formRes[0].phonetics[0]?.audio,
+						};
+					}
 					console.log(res);
 				}}>
 				<input
@@ -60,14 +74,21 @@ const WordComponent = () => {
 					<img src="/assets/images/icon-search.svg" alt="" />
 				</button>
 			</form>
-
-			{res !== undefined ? (
-				<WordContent res={res} key={res.word}></WordContent>
-			) : (
-				<div>Nie ma resa</div>
-			)}
+			{res == undefined ? (
+				<h1 className=" text-2xl py-20 text-center mx-auto max-w-[20ch] ">
+					Searched word will be displayed here
+				</h1>
+			) : null}
+			{res !== undefined ? <WordContent res={res}></WordContent> : null}
+			{res?.message ? (
+				<FailComponent
+					message={res.message}
+					resolution={res.resolution}
+					title={res.title}
+				/>
+			) : null}
 		</main>
 	);
 };
 
-export default WordComponent;
+export default WordWrapper;
